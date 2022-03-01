@@ -1,0 +1,372 @@
+<div class="section-center">
+  <app-sub-header [screenInformation]="screenInformation"></app-sub-header>
+  <div class="profile-information">
+    <div class="row">
+      <div class="col-lg-2 profile-img">
+        <img src="../../../assets/Sarath Kumar V.jpg" alt="" />
+      </div>
+      <div class="col-lg-10 profile-form">
+        <form [formGroup]="profileInformationForm">
+          <div class="row">
+            <div class="col-lg-4 form-group">
+              <label class="form-label" for="displayName">Display Name:</label>
+              <input
+                type="text"
+                id="displayName"
+                name="displayName"
+                placeholder="display name"
+                class="form-control"
+                formControlName="displayName"
+                [ngClass]="{
+                  'is-invalid':
+                    profileInformationForm.controls['displayName'].invalid
+                }"
+              />
+              <div
+                *ngIf="
+                  profileInformationForm.controls['displayName'].invalid &&
+                  (profileInformationForm.controls['displayName'].dirty ||
+                    profileInformationForm.controls['displayName'].touched)
+                "
+                class="invalid-form-control"
+              >
+                <div
+                  *ngIf="
+                    profileInformationForm.controls['displayName'].errors
+                      .required
+                  "
+                >
+                  Please enter display name
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 form-group">
+              <label class="form-label" for="firstName">First Name:</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="first name"
+                class="form-control"
+                formControlName="firstName"
+                [ngClass]="{
+                  'is-invalid':
+                    profileInformationForm.controls['firstName'].invalid
+                }"
+              />
+              <div
+                *ngIf="
+                  profileInformationForm.controls['firstName'].invalid &&
+                  (profileInformationForm.controls['firstName'].dirty ||
+                    profileInformationForm.controls['firstName'].touched)
+                "
+                class="invalid-form-control"
+              >
+                <div
+                  *ngIf="
+                    profileInformationForm.controls['firstName'].errors.required
+                  "
+                >
+                  Please enter first name
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 form-group">
+              <label class="form-label" for="lastName">Last Name:</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="last name"
+                class="form-control"
+                formControlName="lastName"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 form-group">
+              <label class="form-label" for="description"
+                >About Yourself:</label
+              >
+              <textarea
+                name="description"
+                id="description"
+                cols="10"
+                rows="8"
+                class="form-control"
+                formControlName="description"
+                [ngClass]="{
+                  'is-invalid':
+                    profileInformationForm.controls['description'].invalid
+                }"
+              ></textarea>
+              <div
+                *ngIf="
+                  profileInformationForm.controls['description'].invalid &&
+                  (profileInformationForm.controls['description'].dirty ||
+                    profileInformationForm.controls['description'].touched)
+                "
+                class="invalid-form-control"
+              >
+                Exceeded maximum of 100 characters
+              </div>
+            </div>
+          </div>
+          <!-- Area of interest -->
+          <div class="row">
+            <div class="col-lg-4 form-group">
+              <label class="form-label" for="interest"
+                >Your Area of Interest:</label
+              >
+              <div
+                *ngFor="
+                  let control of areaOfInterestsArray.controls;
+                  let i = index
+                "
+                class="form-check"
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="defaultCheck{{ i }}"
+                  [formControl]="control"
+                  (change)="validateAreaOfInterestControl()"
+                />
+                <label
+                  class="form-label label-checkbox"
+                  for="defaultCheck{{ i }}"
+                >
+                  {{ areaOfInterests[i].value }}
+                </label>
+              </div>
+              <div *ngIf="areaOfInterestError" class="invalid-form-control">
+                Please select area of interest
+              </div>
+            </div>
+          </div>
+          <!-- Area of interest -->
+          <div class="row">
+            <div class="col-lg-4 form-group">
+              <label class="form-label mt-3" for="interest"
+                >Are you Student or Professional:</label
+              >
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="userType"
+                  id="exampleRadios1"
+                  formControlName="userType"
+                  value="student"
+                />
+                <label
+                  class="form-label label-radiobutton"
+                  for="exampleRadios1"
+                >
+                  Student
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="userType"
+                  id="exampleRadios1"
+                  formControlName="userType"
+                  value="professional"
+                />
+                <label
+                  class="form-label label-radiobutton"
+                  for="exampleRadios1"
+                >
+                  Professional
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- Profession details -->
+          <div class="profession-detail" *ngIf="userType === 'professional'">
+            <!-- Years of experience -->
+            <div class="row">
+              <div class="col-lg-8 form-group">
+                <label class="form-label mt-3 mb-3" for="interest"
+                  >How much of experience you have:</label
+                >
+                <br />
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="experience"
+                    id="exampleRadios1"
+                    formControlName="experience"
+                    value="0"
+                  />
+                  <label
+                    class="form-label label-radiobutton"
+                    for="exampleRadios1"
+                  >
+                    0
+                  </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="experience"
+                    id="exampleRadios1"
+                    formControlName="experience"
+                    value="5-10"
+                  />
+                  <label
+                    class="form-label label-radiobutton"
+                    for="exampleRadios1"
+                  >
+                    5-10
+                  </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="experience"
+                    id="exampleRadios1"
+                    formControlName="experience"
+                    value="10 & Above"
+                  />
+                  <label
+                    class="form-label label-radiobutton"
+                    for="exampleRadios1"
+                  >
+                    10 & Above
+                  </label>
+                </div>
+              </div>
+            </div>
+            <!-- End of years of experience -->
+            <!-- Area of expertise -->
+            <div class="row">
+              <div class="col-lg-8 form-group">
+                <label class="form-label mt-3 mb-3" for="interest"
+                  >What is your expertise:</label
+                >
+                <br />
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="expertise"
+                    id="exampleRadios1"
+                    formControlName="expertise"
+                    value="angular"
+                  />
+                  <label
+                    class="form-label label-radiobutton"
+                    for="exampleRadios1"
+                  >
+                    Angular
+                  </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="expertise"
+                    id="exampleRadios1"
+                    formControlName="expertise"
+                    value="react"
+                  />
+                  <label
+                    class="form-label label-radiobutton"
+                    for="exampleRadios1"
+                  >
+                    React
+                  </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="expertise"
+                    id="exampleRadios1"
+                    formControlName="expertise"
+                    value="vue.js"
+                  />
+                  <label
+                    class="form-label label-radiobutton"
+                    for="exampleRadios1"
+                  >
+                    Vue.js
+                  </label>
+                </div>
+              </div>
+            </div>
+            <!-- end of area of expertise -->
+            <!-- Role -->
+            <div class="row">
+              <div class="col-lg-5 form-group">
+                <label class="form-label mt-3 mb-3" for="lastName"
+                  >Mention your role:</label
+                >
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="role"
+                  class="form-control"
+                  formControlName="roleDescription"
+                  [ngClass]="{
+                    'is-invalid':
+                      profileInformationForm.controls['roleDescription'].invalid
+                  }"
+                />
+                <div
+                  *ngIf="
+                    profileInformationForm.controls['roleDescription']
+                      .invalid &&
+                    (profileInformationForm.controls['roleDescription'].dirty ||
+                      profileInformationForm.controls['roleDescription']
+                        .touched)
+                  "
+                  class="invalid-form-control"
+                >
+                  Exceeded maximum of 200 characters
+                </div>
+              </div>
+            </div>
+            <!-- end of role -->
+          </div>
+          <!-- End of professional details -->
+          <div class="row">
+            <div class="col-lg-12 mb-3 float-right">
+              <button
+                type="submit"
+                class="profile-btn"
+                (click)="saveProfileInformation()"
+                [disabled]="
+                  !profileInformationForm.valid || areaOfInterestError
+                "
+              >
+                save
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Dialog modal -->
+<app-dialog-modal
+  [openDialog]="openDialog"
+  (closeDialog)="updateDialog($event)"
+  [message]="message"
+></app-dialog-modal>

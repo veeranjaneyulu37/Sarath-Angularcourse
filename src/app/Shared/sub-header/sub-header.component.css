@@ -1,0 +1,27 @@
+.sub-header {
+  background: rgb(0, 0, 0, 1);
+  color: var(--clr-white);
+  height: 60px;
+  border-radius: var(--radius);
+  margin-bottom: 18px;
+}
+
+.sub-header-name {
+  padding-top: 20px;
+  padding-left: 35px;
+  color: var(--clr-white);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.sub-header-img {
+  position: relative;
+}
+
+.sub-header-img img {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 0;
+  left: 80%;
+}

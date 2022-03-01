@@ -1,0 +1,25 @@
+<div class="header">
+  <div class="header-links">
+    <div class="row">
+      <div class="col-lg-8 company-name">
+        <a routerLink="/courses">
+          Hashed<span class="upper-half-company-name">In</span> <br />
+          <span class="lower-half">By Deloitte</span>
+        </a>
+      </div>
+      <div class="col-lg-4 links">
+        <a routerLink="/courses" class="courses">courses</a>
+        <a routerLink="/wishlist" class="whislist">my whislist</a>
+        <kendo-badge-container>
+          <a routerLink="/cart" class="cart">
+            <i class="fa-solid fa-cart-shopping fa-lg"></i>
+          </a>
+          <kendo-badge>{{ cartCoursesCount }}</kendo-badge>
+        </kendo-badge-container>
+        <a routerLink="/profile" class="user-circle">
+          <i class="fa-solid fa-circle-user fa-lg"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

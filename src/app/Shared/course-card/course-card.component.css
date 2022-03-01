@@ -1,0 +1,87 @@
+.course-card {
+  border-radius: var(--radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  min-height: 63px;
+}
+
+.course-body {
+  padding: 5px;
+}
+
+.course-img {
+  width: 40px;
+  height: 40px;
+  background: var(--clr-grey-10);
+}
+
+.course-name {
+  max-width: 250px;
+  font-weight: 800;
+  color: var(--clr-grey-1);
+  font-size: 9px;
+}
+
+.course-tag-btn {
+  background: var(--clr-primary);
+  border: none;
+  padding: 1px 3px;
+  border-radius: var(--radius);
+  color: var(--clr-white);
+  margin-right: 5px;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 10px;
+}
+
+.course-author-name {
+  text-transform: capitalize;
+  font-size: 12px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.price-details span {
+  display: inline-block;
+}
+
+.course-price {
+  font-size: 15px;
+  font-weight: 800;
+  margin: 0 12px;
+}
+
+.actual-price {
+  font-size: 10px;
+  text-decoration: line-through;
+}
+
+.course-trash {
+  margin-right: 5px;
+}
+
+.course-card-btn {
+  text-transform: uppercase;
+  background: var(--clr-primary);
+  border: none;
+  color: var(--clr-white);
+  font-size: 8px;
+  padding: 5px 3px;
+  border-radius: var(--radius);
+  margin-right: 5px;
+  font-weight: 600;
+}
+
+.wishlist-link {
+  font-size: 12px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.cart-trash-can {
+  font-size: 20px;
+}
+
+.right-space {
+  margin-right: 25px;
+}

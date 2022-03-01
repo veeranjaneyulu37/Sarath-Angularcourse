@@ -1,0 +1,47 @@
+<div class="section-center">
+  <app-sub-header [screenInformation]="screenInformation"></app-sub-header>
+  <div class="total-cart-text">{{ totalCoursesInCart }} courses in cart</div>
+  <!-- List of courses -->
+  <div class="courses">
+    <div class="row">
+      <div class="col-lg-9 cart-courses">
+        <app-course-card
+          *ngFor="let course of shoppingCartCourses"
+          [course]="course"
+          [screenName]="screenName"
+          (deleteShoppingCartCourses)="updateShoppingCartCourses($event)"
+        ></app-course-card>
+      </div>
+      <div class="col-lg-3">
+        <div class="checkout-body">
+          <div class="amount-text">total amount</div>
+          <div class="checkout-cart-price">Rs {{ checkoutPrice }} /-</div>
+          <div class="amount-saved">you have saved Rs {{ savedAmount }} /-</div>
+          <button class="checkout-btn" (click)="goToCheckout()">
+            checkout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of list of courses -->
+
+  <!-- Recommended courses -->
+  <div class="row">
+    <div class="col-lg-9 recommeded-courses">
+      <div class="recommended-text">recommended courses</div>
+      <app-course-card
+        *ngFor="let course of recommendedCartCourses"
+        [course]="course"
+        [screenName]="'recommended'"
+      ></app-course-card>
+    </div>
+  </div>
+</div>
+
+<!-- Dialog modal -->
+<app-dialog-modal
+  [openDialog]="openDialog"
+  (closeDialog)="updateDialog($event)"
+  [message]="message"
+></app-dialog-modal>

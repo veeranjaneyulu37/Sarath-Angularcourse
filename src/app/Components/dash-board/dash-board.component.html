@@ -1,0 +1,85 @@
+<div class="section-center">
+  <app-sub-header [screenInformation]="screenInformation"></app-sub-header>
+  <!-- Section filter -->
+  <div class="section-filter">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-lg-8">
+            <span>all courses</span>
+          </div>
+          <div class="col-lg-4 price-filter">
+            <select name="price" (change)="onSortTypeChange($event)">
+              <option
+                *ngFor="let filter of priceFilters"
+                [value]="filter.value"
+                class="price-filter-options"
+              >
+                {{ filter.display }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <input
+          type="text"
+          id="search-bar"
+          class="search-input"
+          placeholder="Search here"
+          (input)="onInputChange()"
+        />
+        <button type="button" class="btn-search" (click)="onSearchCourses()">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- End of section filter -->
+  <!-- List of courses -->
+  <div class="courses">
+    <div class="row">
+      <div class="col-lg-8">
+        <ng-container
+          *ngIf="isFilteredValueNotAvailable; then noCourses; else courseList"
+        >
+        </ng-container>
+        <ng-template #courseList>
+          <app-course-card
+            *ngFor="let course of paginatedCourses"
+            [course]="course"
+            [screenName]="screenName"
+          ></app-course-card>
+        </ng-template>
+        <ng-template #noCourses>
+          <div class="no-course">
+            <i class="fa-solid fa-face-frown fa-2x"></i><br />No courses found
+            for searched value
+          </div>
+        </ng-template>
+      </div>
+      <div class="col-lg-4">
+        <app-course-widget></app-course-widget>
+      </div>
+    </div>
+  </div>
+  <!-- End of list of courses -->
+  <!-- Pagination -->
+  <nav class="pagination" *ngIf="!isFilteredValueNotAvailable">
+    <span (click)="onClickPage(activePage - 1)">
+      <i class="fa-solid fa-angle-left"></i>
+    </span>
+    <span
+      [ngClass]="{ activepage: activePage === item }"
+      *ngFor="let item of coursePages"
+      (click)="onClickPage(item)"
+      class="pagination-number"
+    >
+      {{ item }}
+    </span>
+    <span (click)="onClickPage(activePage + 1)">
+      <i class="fa-solid fa-angle-right"></i>
+    </span>
+  </nav>
+  <!-- End of pagination -->
+</div>

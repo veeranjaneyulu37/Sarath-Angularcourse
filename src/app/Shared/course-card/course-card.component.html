@@ -1,0 +1,104 @@
+<div class="course-card">
+  <div class="course-body">
+    <div class="row">
+      <div class="col-lg-1 pt-1">
+        <div class="course-img"></div>
+      </div>
+      <div
+        [ngClass]="{
+          'col-lg-6': screenName === 'shoppingCart',
+          'col-lg-4':
+            screenName === 'dashboard' || screenName === 'recommended',
+          'col-lg-3': screenName === 'wishlist'
+        }"
+      >
+        <p class="course-name pt-2 mb-1">
+          {{ course.courseName }}
+        </p>
+        <button *ngFor="let tag of course.tags" class="course-tag-btn">
+          {{ tag }}
+        </button>
+      </div>
+      <div class="col-lg-2" *ngIf="screenName !== 'shoppingCart'">
+        <div class="course-author-name pt-3">{{ course.author }}</div>
+      </div>
+      <div
+        class="col-lg-2 pt-3 wishlist-link"
+        *ngIf="screenName === 'shoppingCart'"
+      >
+        <a class="cursor" (click)="moveCardCoursesToWishlist()"
+          >move to wishlist</a
+        >
+      </div>
+      <div
+        class="pt-3"
+        [ngClass]="{
+          'col-lg-2': screenName === 'shoppingCart',
+          'col-lg-3': screenName !== 'shoppingCart'
+        }"
+      >
+        <span
+          *ngIf="screenName === 'dashboard'"
+          class="cursor"
+          (click)="updateWishlist()"
+        >
+          <i
+            class="fa-solid fa-star"
+            [ngClass]="{ selected: course.IsWhishlisted === true }"
+          ></i>
+        </span>
+        <span class="course-price"><i>Rs</i> {{ course.price }} <i>/-</i></span>
+        <span *ngIf="screenName !== 'shoppingCart'">
+          <span
+            *ngIf="course.isCourseDiscounted; else priceLine"
+            class="actual-price"
+          >
+            <i>Rs</i> {{ course.actualPrice }} <i>/-</i>
+          </span>
+          <ng-template #priceLine> - </ng-template>
+        </span>
+      </div>
+      <div
+        class="pt-3"
+        [ngClass]="{
+          'col-lg-1': screenName === 'shoppingCart',
+          'col-lg-2':
+            screenName === 'dashboard' || screenName === 'recommended',
+          'col-lg-3': screenName === 'wishlist'
+        }"
+      >
+        <button
+          class="course-card-btn right-space"
+          (click)="addToCard()"
+          *ngIf="screenName !== 'shoppingCart'"
+        >
+          add to card
+        </button>
+        <span
+          *ngIf="screenName !== 'dashboard' && screenName !== 'recommended'"
+          (click)="deleteCourse()"
+          class="course-trash cursor right-space"
+          [ngClass]="{
+            'cart-trash-can': screenName === 'shoppingCart'
+          }"
+        >
+          <i class="fa-solid fa-trash-can"></i>
+        </span>
+        <span
+          class="course-arrow cursor"
+          (click)="navigateToCourseDetailsPage()"
+          *ngIf="screenName !== 'shoppingCart'"
+        >
+          <i class="fa-solid fa-angle-right"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Dialog model -->
+<app-dialog-modal
+  [openDialog]="openDialog"
+  (closeDialog)="updateDialog($event)"
+  [message]="message"
+></app-dialog-modal>

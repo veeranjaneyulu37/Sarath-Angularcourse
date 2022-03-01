@@ -1,0 +1,46 @@
+<div class="section-center">
+  <app-sub-header [screenInformation]="screenInformation"></app-sub-header>
+  <!-- Section filter -->
+  <div class="section-filter">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-lg-8">
+            <span>my wishlist</span>
+          </div>
+          <div class="col-lg-4 price-filter">
+            <select
+              name="price"
+              (change)="onSortTypeChange($event.target.value)"
+            >
+              <option
+                *ngFor="let filter of priceFilters"
+                [value]="filter.value"
+              >
+                {{ filter.display }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of section filter -->
+  <!-- List of courses -->
+  <div class="courses">
+    <div class="row">
+      <div class="col-lg-8">
+        <app-course-card
+          *ngFor="let course of wishListCourses"
+          [course]="course"
+          [screenName]="screenName"
+          (deleteWishlistCourses)="updateWishlistCourses($event)"
+        ></app-course-card>
+      </div>
+      <div class="col-lg-4">
+        <app-course-widget></app-course-widget>
+      </div>
+    </div>
+  </div>
+  <!-- End of list of courses -->
+</div>

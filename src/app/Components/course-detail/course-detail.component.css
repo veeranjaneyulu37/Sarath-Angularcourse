@@ -1,0 +1,147 @@
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "\203A";
+}
+
+.breadcrumb-item a {
+  color: var(--clr-grey-1);
+  text-transform: capitalize;
+  padding-right: 8px;
+}
+
+.current-course-page {
+  color: rgb(5, 5, 5);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.course-detail-banner {
+  width: 100vw;
+  background: rgb(0, 0, 0, 1);
+  color: var(--clr-white);
+}
+
+.course-detail-name {
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 600;
+  margin-bottom: 8px;
+  max-width: 35rem;
+  margin-top: 16px;
+}
+
+.small-course-detail-name {
+  text-transform: capitalize;
+  font-weight: 400;
+  margin-bottom: 5px;
+  max-width: 35rem;
+  color: rgb(255, 255, 255, 0.7);
+  font-size: 10px;
+}
+
+.course-detail-author {
+  margin-top: 10px;
+  text-transform: capitalize;
+  color: rgba(255, 99, 88, 0.7);
+}
+
+.course-detail-tag-btn {
+  text-transform: uppercase;
+  background: var(--clr-white);
+  border: none;
+  color: rgb(0, 0, 0, 1);
+  font-size: 8px;
+  padding: 4px 14px;
+  border-radius: var(--radius);
+  margin: 10px 0;
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+.course-detail-description {
+  border: 1px solid rgb(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+}
+
+.course-description-section-title {
+  padding: 8px 0;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.course-detail-description p {
+  margin-bottom: 6px;
+  max-width: 32rem;
+  font-size: 13px;
+}
+
+.section-center {
+  position: relative;
+}
+
+.course-detail-video {
+  border: 1px solid var(--clr-white);
+  position: absolute;
+  top: -53%;
+  width: 390px;
+  height: 220px;
+  z-index: 1;
+  background: url("../../../assets/black-video-thumbnail.jpg");
+  object-fit: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.course-price-detail {
+  margin-top: 90px;
+  padding: 10px 6px;
+  border: 1px solid rgb(0, 0, 0, 0.1);
+}
+
+.course-detail-price {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.course-detail-actual-price {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  text-decoration: line-through;
+}
+
+.discount-time {
+  color: var(--clr-primary);
+  margin-bottom: 10px;
+}
+
+.course-detail-cart-btn {
+  text-transform: uppercase;
+  background: var(--clr-primary);
+  border: none;
+  color: var(--clr-white);
+  font-size: 12px;
+  padding: 10px 35px;
+  border-radius: var(--radius);
+  margin: 15px 0;
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+.course-detail-wishlist-btn {
+  text-transform: uppercase;
+  background: var(--clr-white);
+  border: 1px solid red;
+  color: var(--clr-primary);
+  font-size: 12px;
+  padding: 9px 14px;
+  border-radius: var(--radius);
+  margin: 15px 0;
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+.fa-clipboard-list {
+  font-size: 16px;
+  margin-left: 2px;
+}

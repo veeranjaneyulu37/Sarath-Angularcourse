@@ -1,0 +1,70 @@
+<div class="section-center">
+  <!-- Sub header -->
+  <app-sub-header [screenInformation]="screenInformation"></app-sub-header>
+
+  <!-- Bread crumb -->
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/courses">all courses</a></li>
+      <li class="breadcrumb-item current-course-page" aria-current="page">
+        {{ course.courseName }}
+      </li>
+    </ol>
+  </nav>
+  <!-- End of bread crumb -->
+</div>
+
+<!-- Courses details banner -->
+<div class="course-detail-banner">
+  <div class="section-center py-2">
+    <div class="course-detail-name">{{ course.description }}</div>
+    <div class="small-course-detail-name">{{ course.description }}</div>
+    <div class="course-detail-author">{{ course.author }}</div>
+    <button *ngFor="let tag of course.tags" class="course-detail-tag-btn">
+      {{ tag }}
+    </button>
+  </div>
+</div>
+<!-- End of course details banner -->
+<!-- Course details -->
+<div class="section-center">
+  <div class="row">
+    <div class="col-lg-8 course-detail-description">
+      <div class="course-description-section-title">course details</div>
+      <p *ngFor="let course of courseDescription">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima alias
+        voluptatibus corrupti porro pariatur non.
+      </p>
+    </div>
+    <div class="col-lg-4">
+      <a
+        href="https://www.udemy.com/course/angular-essentials-angular-2-angular-4-with-typescript/"
+        target="_blank"
+        ><div class="course-detail-video"></div
+      ></a>
+      <div class="course-price-detail">
+        <div class="course-detail-price">Rs {{ course.price }} /-</div>
+        <div *ngIf="course.actualPrice > 0" class="course-detail-actual-price">
+          Rs {{ course.actualPrice }} /-
+        </div>
+        <div *ngIf="course.actualPrice > 0" class="discount-time">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          {{ timeLeftForOffer }} hours left for this price
+        </div>
+        <button class="course-detail-cart-btn" (click)="addToCart()">
+          add to cart
+        </button>
+        <button class="course-detail-wishlist-btn" (click)="addToWishlist()">
+          add to whislist <i class="fa-solid fa-clipboard-list"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Dialog modal -->
+<app-dialog-modal
+  [openDialog]="openDialog"
+  (closeDialog)="updateDialog($event)"
+  [message]="message"
+></app-dialog-modal>

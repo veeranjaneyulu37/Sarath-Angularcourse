@@ -1,0 +1,16 @@
+<kendo-dialog
+  *ngIf="openDialog"
+  (close)="close()"
+  [minWidth]="250"
+  [width]="450"
+>
+  <kendo-dialog-titlebar>
+    <div style="font-size: 24px">
+      <i class="fa-solid fa-face-smile"></i>
+    </div>
+  </kendo-dialog-titlebar>
+  <p class="dialog-message">{{ message }}</p>
+  <kendo-dialog-actions class="action-btn">
+    <button (click)="close()" class="dialog-button">Ok</button>
+  </kendo-dialog-actions>
+</kendo-dialog>

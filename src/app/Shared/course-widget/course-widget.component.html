@@ -1,0 +1,37 @@
+<div class="course-widget">
+  <header class="course-widget-header">
+    <p>your cart details</p>
+  </header>
+  <div class="course-widget-body">
+    <section *ngFor="let course of cartCourses" class="course-information">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="course-img"></div>
+        </div>
+        <div class="col-lg-9 pt-2">
+          <p class="course-name">
+            {{ course.courseName }}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="course-price"><i>Rs</i> {{ course.price }} <i>/-</i></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer class="widget-footer">
+    <div class="row">
+      <div class="col-lg-6">
+        <p>total cart value</p>
+        <span class="total-price"
+          ><i>Rs</i> {{ totalCartValue }} <i>/-</i></span
+        >
+      </div>
+      <div class="col-lg-6 footer-checkout" *ngIf="checkCartCourseCount()">
+        <a routerLink="/cart">go to checkout</a>
+      </div>
+    </div>
+  </footer>
+</div>

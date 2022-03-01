@@ -1,0 +1,58 @@
+.header {
+  width: 100%;
+  height: 3rem;
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.header-links {
+  width: 100%;
+  height: 50px;
+}
+
+.company-name {
+  font-size: 10px;
+  font-weight: bold;
+  padding-left: 3rem;
+  padding-top: 0.5rem;
+}
+
+.company-name a {
+  color: var(--clr-grey-5);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.upper-half-company-name {
+  color: var(--clr-primary);
+}
+
+.lower-half {
+  font-size: 8px;
+}
+
+.links {
+  text-align: right;
+  padding: 1rem;
+}
+
+.links a {
+  padding: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--clr-grey-5);
+}
+
+.links .courses,
+i {
+  color: var(--clr-grey-1);
+  font-weight: 600;
+}
+
+.links .whislist {
+  font-weight: 400;
+}
+
+.links .cart {
+  padding: 0.5rem;
+}

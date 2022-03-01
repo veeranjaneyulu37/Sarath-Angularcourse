@@ -1,0 +1,48 @@
+.search-input {
+  width: 88%;
+  background: var(--clr-grey-10);
+  padding: 0.25rem;
+  border: none;
+}
+
+.btn-search {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0;
+  border: none;
+  background: var(--clr-primary);
+  color: var(--clr-white);
+}
+
+.pagination {
+  padding-left: 10px;
+  color: var(--clr-primary);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.pagination span {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.pagination-number {
+  color: var(--clr-grey-1);
+}
+
+.activepage {
+  background: var(--clr-primary);
+  padding: 0px 7px;
+  border-radius: 50%;
+  color: var(--clr-white);
+}
+
+.no-course {
+  text-align: center;
+  font-size: 1rem;
+  width: 500px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-top: 100px;
+  font-weight: 600;
+  color: var(--clr-primary);
+}
